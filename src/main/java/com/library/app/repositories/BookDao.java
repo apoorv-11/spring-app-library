@@ -59,4 +59,3 @@ public class BookDao {
         return jdbcTemplate.query(sql, new BeanPropertyRowMapper<>(Book.class));
     }
 }
-
