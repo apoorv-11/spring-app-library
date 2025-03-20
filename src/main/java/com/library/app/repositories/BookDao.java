@@ -58,4 +58,19 @@ public class BookDao {
         String sql = "SELECT * FROM books";
         return jdbcTemplate.query(sql, new BeanPropertyRowMapper<>(Book.class));
     }
+
+    public void reduceAvailableCopies(Long bookId) {
+        String sql = "UPDATE books SET availableCopies = availableCopies - 1 WHERE id = :bookId AND availableCopies > 0";       
+        MapSqlParameterSource params = new MapSqlParameterSource()
+                .addValue("bookId", bookId);
+        int rowsUpdated = jdbcTemplate.update(sql, params);
+        if (rowsUpdated == 0) {
+            throw new RuntimeException("Book not available for issue or already out of stock.");
+        }
+    }
+    public void incrementAvailableCopies(Long bookId) {
+        String sql = "UPDATE books SET availableCopies = availableCopies + 1 WHERE id = :bookId";
+        MapSqlParameterSource params = new MapSqlParameterSource("bookId", bookId);
+        jdbcTemplate.update(sql, params);
+    }
 }

@@ -34,7 +34,7 @@ public class IssuedBookController {
         return ResponseEntity.ok(issuedBookService.getIssuedBookById(id));
     }
 
-    @PutMapping
+    @PutMapping("/{id}")
     public ResponseEntity<String> updateIssuedBook(@RequestBody IssuedBook issuedBook) {
         issuedBookService.updateIssuedBook(issuedBook);
         return ResponseEntity.ok("Issued book updated successfully.");

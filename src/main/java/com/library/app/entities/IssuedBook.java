@@ -4,18 +4,18 @@ import java.time.LocalDate;
 
 public class IssuedBook {
     private Long id;
-    private Book book;
-    private Member member;
+    private Long bookId;  // Change from Book object to Long
+    private Long memberId; // Change from Member object to Long
     private LocalDate issueDate;
     private LocalDate returnDate;
 
     // Constructors
     public IssuedBook() {}
 
-    public IssuedBook(Long id, Book book, Member member, LocalDate issueDate, LocalDate returnDate) {
+    public IssuedBook(Long id, Long bookId, Long memberId, LocalDate issueDate, LocalDate returnDate) {
         this.id = id;
-        this.book = book;
-        this.member = member;
+        this.bookId = bookId;
+        this.memberId = memberId;
         this.issueDate = issueDate;
         this.returnDate = returnDate;
     }
@@ -29,20 +29,20 @@ public class IssuedBook {
         this.id = id;
     }
 
-    public Book getBook() {
-        return book;
+    public Long getBookId() {
+        return bookId;
     }
 
-    public void setBook(Book book) {
-        this.book = book;
+    public void setBookId(Long bookId) {
+        this.bookId = bookId;
     }
 
-    public Member getMember() {
-        return member;
+    public Long getMemberId() {
+        return memberId;
     }
 
-    public void setMember(Member member) {
-        this.member = member;
+    public void setMemberId(Long memberId) {
+        this.memberId = memberId;
     }
 
     public LocalDate getIssueDate() {
