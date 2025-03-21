@@ -34,13 +34,13 @@ public class MemberController {
         return ResponseEntity.ok(memberService.getMemberById(id));
     }
 
-    @PutMapping
+    @PutMapping("/update/{id}")
     public ResponseEntity<String> updateMember(@RequestBody Member member) {
         memberService.updateMember(member);
         return ResponseEntity.ok("Member updated successfully.");
     }
 
-    @DeleteMapping("/{id}")
+    @DeleteMapping("/delete`/{id}")
     public ResponseEntity<String> deleteMember(@PathVariable Long id) {
         memberService.deleteMember(id);
         return ResponseEntity.ok("Member deleted successfully.");
